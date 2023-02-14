@@ -1,5 +1,5 @@
 {
-  "name": "parcel-transformer-ttypescript",
+  "name": "@gipphe/parcel-transformer-ttypescript",
   "version": "1.0.2",
   "description": "A parcel v2 TypeScript transformer to use ttypescript",
   "author": "Aurélien Manteaux <amanteaux@coreoz.com> (https://coreoz.com)",
