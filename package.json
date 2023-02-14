@@ -31,13 +31,14 @@
   "module": "build/esm/TtscTransformer.js",
   "source": "src/TtscTransformer.js",
   "engines": {
-    "node": ">=10",
-    "parcel": "^2.0.0-beta.1"
+    "node": ">=16",
+    "parcel": "^2.8.3"
   },
   "dependencies": {},
   "devDependencies": {
-    "@parcel/plugin": "2.0.0-beta.1",
-    "@parcel/ts-utils": "2.0.0-beta.1",
+    "@parcel/plugin": "2.8.3",
+    "@parcel/source-map": "^2.1.1",
+    "@parcel/ts-utils": "2.8.3",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
     "eslint": "^7.8.0",
