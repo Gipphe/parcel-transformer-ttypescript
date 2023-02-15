@@ -1,6 +1,6 @@
 {
   "name": "@gipphe/parcel-transformer-ttypescript",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "A parcel v2 TypeScript transformer to use ttypescript",
   "author": "Aurélien Manteaux <amanteaux@coreoz.com> (https://coreoz.com)",
   "repository": "https://github.com/coreoz/parcel-transformer-ttypescript",
@@ -35,9 +35,9 @@
     "parcel": "^2.8.3"
   },
   "dependencies": {
-    "@parcel/ts-utils": "2.8.3",
-    "@parcel/source-map": "^2.1.1",
     "@parcel/plugin": "2.8.3",
+    "@parcel/source-map": "^2.1.1",
+    "@parcel/ts-utils": "2.8.3",
     "ttypescript": "^1.5.15",
     "typescript": "4.9.5"
   },
