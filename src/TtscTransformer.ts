@@ -9,14 +9,12 @@ export default new Transformer({
   },
 
   async transform({ asset, config, options }) {
-    asset.type = "js";
-
-    let [code, originalMap] = await Promise.all([
+    const [code, originalMap] = await Promise.all([
       asset.getCode(),
       asset.getMap(),
     ]);
 
-    let { outputText, sourceMapText } = typescript.transpileModule(code, {
+    const res = typescript.transpileModule(code, {
       compilerOptions: {
         // React is the default. Users can override this by supplying their own tsconfig,
         // which many TypeScript users will already have for typechecking, etc.
@@ -32,6 +30,8 @@ export default new Transformer({
       },
       fileName: asset.filePath, // Should be relativePath?
     });
+    let { outputText } = res;
+    const { sourceMapText } = res;
 
     if (sourceMapText != null) {
       outputText = outputText.substring(
@@ -39,14 +39,15 @@ export default new Transformer({
         outputText.lastIndexOf("//# sourceMappingURL")
       );
 
-      let map = new SourceMap(options.projectRoot);
+      const map = new SourceMap(options.projectRoot);
       map.addVLQMap(JSON.parse(sourceMapText));
       if (originalMap) {
-        map.extends(originalMap);
+        map.extends(originalMap as unknown as Buffer);
       }
       asset.setMap(map);
     }
 
+    // eslint-disable-next-line no-param-reassign
     asset.type = "js";
     asset.setCode(outputText);
 
